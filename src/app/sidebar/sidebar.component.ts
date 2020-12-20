@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faAngleDown, faAngleRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SidebarService } from './sidebar.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { SidebarService } from './sidebar.service';
 export class SidebarComponent implements OnInit {
   menus = [];
   toggle = false;
+  faAngleRight = faAngleRight;
+  faAngleDown = faAngleDown;
+  faTimes = faTimes;
 
   constructor(private sidebarService: SidebarService) { }
 

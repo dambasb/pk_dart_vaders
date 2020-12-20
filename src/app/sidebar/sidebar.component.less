@@ -14,6 +14,7 @@
   cursor: pointer;
   i {
     padding-right: 20px;
+    color: red;
   }
 }
 .sidebar-item:hover {
@@ -50,6 +51,7 @@
 
 .sidebar-header {
   padding: 10px 20px;
+  position: relative;
   a {
     color: #bdbdbd;
     text-transform: uppercase;
@@ -80,4 +82,20 @@
     color: white;
     float: left;
   }
+}
+
+.active::after {
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  top: 0;
+  left: 0;
+  background-color: orange;
+  content: "";
+}
+
+fa-icon {
+  color: #bdbdbd;
+  position: absolute;
+  right: 20px;
 }

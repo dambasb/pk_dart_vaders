@@ -1,7 +1,8 @@
 <div class="sidebar">
 
   <div class="sidebar-header">
-    <a href="#">PK Dart Vaders</a>
+    <a routerLink="dashboard">PK Dart Vaders</a>
+    <fa-icon [icon]="faTimes"></fa-icon>
   </div>
 
   <div class="sidebar-profile media">
@@ -19,10 +20,11 @@
   </div>
 
   <div class="sidebar-menu">
-    <ul>
+    <ul class="p-0">
       <li *ngFor="let menu of menus; index as i;">>
         <a *ngIf="menu.type === 'simple'"
-           href="#"
+           routerLink="{{menu.route}}"
+           routerLinkActive="active"
            class="sidebar-item">
           <span>{{menu.title}}</span>
         </a>
@@ -31,14 +33,19 @@
              class="dropdown">
 
           <div class="sidebar-submenu">
-            <a href="#"
+            <a routerLink="{{menu.route}}"
+               routerLinkActive="active"
                class="sidebar-item"
                (click)="removeClass(i)">
               <span>{{menu.title}}</span>
+              <fa-icon [icon]="menu.toggle ? faAngleDown : faAngleRight"></fa-icon>
+
             </a>
+
             <ul [ngClass]="menu.toggle ? 'open' : 'close'">
               <li *ngFor="let submenu of menu.submenus">
-                <a href="#"
+                <a routerLink="{{submenu.route}}"
+                   routerLinkActive="active"
                    class="sidebar-item"> {{submenu.title}}
                 </a>
               </li>
