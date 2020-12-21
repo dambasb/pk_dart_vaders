@@ -1,8 +1,10 @@
-<div class="sidebar">
+<div class="sidebar"
+     [ngClass]="{'close-sidebar' : toggleSidebar}">
 
   <div class="sidebar-header">
     <a routerLink="dashboard">PK Dart Vaders</a>
-    <fa-icon [icon]="faTimes"></fa-icon>
+    <fa-icon [icon]="faTimes"
+             (click)="toggleSidebarNav()"></fa-icon>
   </div>
 
   <div class="sidebar-profile media">
@@ -36,7 +38,7 @@
             <a routerLink="{{menu.route}}"
                routerLinkActive="active"
                class="sidebar-item"
-               (click)="removeClass(i)">
+               (click)="toggleDropdownClass(i)">
               <span>{{menu.title}}</span>
               <fa-icon [icon]="menu.toggle ? faAngleDown : faAngleRight"></fa-icon>
 
@@ -59,3 +61,8 @@
   </div>
 
 </div>
+
+<fa-icon class="faBars"
+         [icon]="faBars"
+         [ngClass]="{'d-none' : !toggleSidebar}"
+         (click)="toggleSidebarNav()"></fa-icon>

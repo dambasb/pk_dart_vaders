@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faAngleDown, faAngleRight, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleRight, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SidebarService } from './sidebar.service';
 
 @Component({
@@ -10,10 +10,12 @@ import { SidebarService } from './sidebar.service';
 })
 export class SidebarComponent implements OnInit {
   menus = [];
-  toggle = false;
+  toggleDropdown = false;
+  toggleSidebar = false;
   faAngleRight = faAngleRight;
   faAngleDown = faAngleDown;
   faTimes = faTimes;
+  faBars = faBars;
 
   constructor(private sidebarService: SidebarService) { }
 
@@ -22,8 +24,21 @@ export class SidebarComponent implements OnInit {
   }
 
   /* Toggle dropdown of specific item in ngFor */
-  removeClass(index) {
-    this.menus[index].toggle = !this.menus[index].toggle;
-    this.toggle = this.menus[index].toggle;
+  toggleDropdownClass(index: number) {
+
+    /* Open clicked dropdown and close all others */
+    this.menus.forEach((data, i) => {
+      if (i === index) {
+        this.menus[i].toggle = !this.menus[index].toggle;
+      } else {
+        this.menus[i].toggle = false;
+      }
+    });
+
+    this.toggleDropdown = this.menus[index].toggle;
+  }
+
+  toggleSidebarNav() {
+    this.toggleSidebar = !this.toggleSidebar;
   }
 }
