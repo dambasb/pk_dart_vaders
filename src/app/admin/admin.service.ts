@@ -16,6 +16,37 @@ export class AdminService {
     {
       id: 4,
       firstName: 'FMarko'
+    },
+    {
+      id: 5,
+      firstName: 'Damir'
+    },
+    {
+      id: 6,
+      firstName: 'BKristijan'
+    },
+    {
+      id: 7,
+      firstName: 'CMarko'
+    },
+    {
+      id: 8,
+      firstName: 'FMarko'
+    }, {
+      id: 9,
+      firstName: 'Damir'
+    },
+    {
+      id: 10,
+      firstName: 'BKristijan'
+    },
+    {
+      id: 11,
+      firstName: 'CMarko'
+    },
+    {
+      id: 12,
+      firstName: 'FMarko'
     }
   ];
 
