@@ -1,0 +1,40 @@
+<div class="row md-mt-50 red">
+  <div class="col-sm-12">
+    <h1>Table 21./22.</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Team</th>
+          <th scope="col">Points</th>
+          <th scope="col">Played</th>
+          <th scope="col">Win</th>
+          <th scope="col">Draw</th>
+          <th scope="col">Lose</th>
+          <th scope="col">Meetings</th>
+          <th scope="col">Sets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of table; index as i">
+          <th scope="row">{{i}}</th>
+          <td>{{item.team}}</td>
+          <td>{{item.points}}</td>
+          <td>{{item.played}}</td>
+          <td>{{item.win}}</td>
+          <td>{{item.draw}}</td>
+          <td>{{item.lose}}</td>
+          <td>{{item.meetings}}</td>
+          <td>{{item.sets}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

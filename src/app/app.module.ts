@@ -12,7 +12,7 @@ import { TrainingComponent } from './training/training.component';
 import { TeamComponent } from './team/team.component';
 import { AdminComponent } from './admin/admin.component';
 import { FixturesComponent } from './league/fixtures/fixtures.component';
-import { TablesComponent } from './league/tables/tables.component';
+import { TablesComponent } from './league/table/table.component';
 import { StatesComponent } from './league/states/states.component';
 import { PlayersComponent } from './team/players/players.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
