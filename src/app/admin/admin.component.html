@@ -1,1 +1,31 @@
-<p>admin works!</p>
+<div class="row md-mt-50 red">
+  <div class="col-sm-12">
+    <h1>Admin</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="sort('id')"
+              scope="col">#</th>
+          <th (click)="sort('firstName')"
+              scope="col">First</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; index as i">
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.firstName}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

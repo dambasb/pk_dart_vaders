@@ -15,6 +15,10 @@ import { FixturesComponent } from './league/fixtures/fixtures.component';
 import { TablesComponent } from './league/tables/tables.component';
 import { StatesComponent } from './league/states/states.component';
 import { PlayersComponent } from './team/players/players.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { PlayersComponent } from './team/players/players.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
