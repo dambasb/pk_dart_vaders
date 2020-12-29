@@ -1,6 +1,6 @@
 <div class="row md-mt-50">
   <div class="col-sm-12">
-    <h1>Fixtures 21./22.</h1>
+    <h1 class="page-tittle">Fixtures 21./22.</h1>
   </div>
 </div>
 
@@ -15,9 +15,15 @@
     </div>
     <div class="row"
          *ngFor="let match of fixture.matches; index as i">
-      <div class="col-sm-2">{{match.date}}</div>
-      <div class="col-sm-4 text-center">{{match.match}}</div>
-      <div class="col-sm-2 text-center">{{match.result}}</div>
+      <div class="col-sm-2">
+        <p>{{match.date}}</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        <p><a href="">{{match.homeTeam}}</a> - <a href="">{{match.awayTeam}}</a></p>
+      </div>
+      <div class="col-sm-2 text-center">
+        <p>{{match.result}}</p>
+      </div>
     </div>
   </div>
 </div>
