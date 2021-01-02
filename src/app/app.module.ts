@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatSortModule } from '@angular/material/sort';
     FixturesComponent,
     TablesComponent,
     StatesComponent,
-    PlayersComponent
+    PlayersComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

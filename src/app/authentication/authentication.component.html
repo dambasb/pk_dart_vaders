@@ -1,0 +1,49 @@
+<!-- https://codepen.io/ehermanson/pen/KwKWEv -->
+
+<div>
+
+
+  <h1>PK Dart Vaders</h1>
+  <form>
+
+    <div class="form-group"
+         *ngIf="!isLogin">
+      <label for="firstName">First Name</label>
+      <input type="text"
+             class="form-control">
+    </div>
+
+    <div class="form-group"
+         *ngIf="!isLogin">
+      <label for="lastName">Last Name</label>
+      <input type="text"
+             class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email"
+             class="form-control">
+    </div>
+
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password"
+             class="form-control">
+    </div>
+
+    <div class="form-group"
+         *ngIf="!isLogin">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password"
+             class="form-control">
+    </div>
+    <div class="text-center">
+      <button type="submit"
+              class="btn btn-primary">{{buttonContent}}</button>
+    </div>
+
+  </form>
+
+</div>

@@ -1,11 +1,13 @@
-<div class="page-content">
+<div *ngIf="!isAuthentication"
+     class="page-content">
   <app-sidebar></app-sidebar>
   <div class="main">
     <div class="container">
-
       <router-outlet></router-outlet>
     </div>
   </div>
+</div>
 
-
+<div *ngIf="isAuthentication">
+  <router-outlet></router-outlet>
 </div>

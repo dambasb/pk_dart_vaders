@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FixturesComponent } from './league/fixtures/fixtures.component';
 import { LeagueComponent } from './league/league.component';
@@ -19,7 +20,13 @@ const routes: Routes = [
   { path: 'master', component: MasterComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'team', component: TeamComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent },
+  {
+    path: 'authentication', children: [
+      { path: 'login', component: AuthenticationComponent, data: { buttonContent: "Login" } },
+      { path: 'singup', component: AuthenticationComponent, data: { buttonContent: "Sing Up" } }
+    ]
+  }
 
 ];
 
