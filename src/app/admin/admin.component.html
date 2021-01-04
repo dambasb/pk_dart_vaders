@@ -1,7 +1,17 @@
 <div class="row md-mt-50 red">
   <div class="col-sm-12">
-    <h1 class="page-tittle">Admin <button class="btn btn-primary">New</button></h1>
+    <h1 class="page-tittle">Admin <a class="btn btn-primary"
+         data-toggle="modal"
+         data-target="#myModal">New</a></h1>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade"
+       id="myModal"
+       role="dialog">
+    <app-new-user></app-new-user>
+  </div>
+
 </div>
 
 <div class="row">

@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { NewUserComponent } from './admin/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     TablesComponent,
     StatesComponent,
     PlayersComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
