@@ -23,6 +23,10 @@ export class SidebarService {
         {
           title: 'States',
           route: 'league/states'
+        },
+        {
+          title: 'Teams',
+          route: 'league/teams'
         }
       ]
     },
@@ -49,6 +53,11 @@ export class SidebarService {
           title: 'Stats'
         }
       ]
+    },
+    {
+      title: 'Settings',
+      route: 'settings',
+      type: 'simple'
     },
     {
       title: 'Admin',

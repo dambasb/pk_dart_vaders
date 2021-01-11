@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./states.component.less']
 })
 export class StatesComponent implements OnInit {
-
+  states = [];
   constructor() { }
 
   ngOnInit(): void {

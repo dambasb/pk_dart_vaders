@@ -1,0 +1,58 @@
+<div class="row md-mt-50">
+  <div class="col-sm-12">
+    <h1 class="page-tittle">Settings</h1>
+  </div>
+
+  <div class="col-sm-12">
+    <form>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text"
+                   class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text"
+                   class="form-control">
+          </div>
+          <div>
+            <button class="btn btn-success"
+                    type="button"
+                    (click)="changeProfileImage.click()">Change Profile Image</button>
+            <input type="file"
+                   #changeProfileImage>
+          </div>
+
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                   class="form-control">
+          </div>
+
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                   class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password"
+                   class="form-control">
+          </div>
+          <div class="text-center">
+            <button type="submit"
+                    class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

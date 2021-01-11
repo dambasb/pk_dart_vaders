@@ -21,6 +21,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { NewUserComponent } from './admin/new-user/new-user.component';
+import { TeamsComponent } from './league/teams/teams.component';
+import { TeamDetailsComponent } from './league/teams/team-details/team-details.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { NewUserComponent } from './admin/new-user/new-user.component';
     StatesComponent,
     PlayersComponent,
     AuthenticationComponent,
-    NewUserComponent
+    NewUserComponent,
+    TeamsComponent,
+    TeamDetailsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
