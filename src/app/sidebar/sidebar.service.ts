@@ -47,10 +47,12 @@ export class SidebarService {
       toggle: false,
       submenus: [
         {
-          title: 'Players'
+          title: 'Players',
+          route: 'team/players',
         },
         {
-          title: 'Stats'
+          title: 'Stats',
+          route: 'team/stats',
         }
       ]
     },

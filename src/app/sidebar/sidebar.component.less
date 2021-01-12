@@ -62,6 +62,9 @@
     font-size: 14px;
     font-weight: 700;
   }
+  fa-icon {
+    cursor: pointer;
+  }
 }
 
 .sidebar-profile {
@@ -106,16 +109,29 @@ fa-icon {
 
 .close-sidebar {
   margin-left: -300px;
-  transition: margin 0.3s;
+  transition: margin 0.5s;
 }
 .open-sidebar {
   margin-left: 0;
+  transition: margin 0.5s;
+}
+
+.circle {
+  height: 40px;
+  width: 40px;
+  background: #1d1d1d;
+  border-radius: 50%;
+  margin: 50px 0 0 20px;
+  position: relative;
+  cursor: pointer;
 }
 
 .faBars {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 50%;
+  left: 50%;
+  margin-top: -12px;
+  margin-left: -7px;
 }
 
 .sidebar-footer {

@@ -1,5 +1,5 @@
 <div class="sidebar"
-     [ngClass]="{'close-sidebar' : toggleSidebar}">
+     [ngClass]="toggleSidebar ? 'close-sidebar' : 'open-sidebar'">
 
   <div class="sidebar-header">
     <a routerLink="dashboard">PK Dart Vaders</a>
@@ -23,7 +23,7 @@
 
   <div class="sidebar-menu">
     <ul class="p-0">
-      <li *ngFor="let menu of menus; index as i;">>
+      <li *ngFor="let menu of menus; index as i;">
         <a *ngIf="menu.type === 'simple'"
            routerLink="{{menu.route}}"
            routerLinkActive="active"
@@ -61,12 +61,14 @@
   </div>
 
   <div class="sidebar-footer">
-    <p>Login</p>
+    <a routerLink="authentication/login">Login</a>
   </div>
 
 </div>
 
-<fa-icon class="faBars"
-         [icon]="faBars"
-         [ngClass]="{'d-none' : !toggleSidebar}"
-         (click)="toggleSidebarNav()"></fa-icon>
+<div class="circle">
+  <fa-icon class="faBars"
+           [icon]="faBars"
+           [ngClass]="{'d-none' : !toggleSidebar}"
+           (click)="toggleSidebarNav()"></fa-icon>
+</div>

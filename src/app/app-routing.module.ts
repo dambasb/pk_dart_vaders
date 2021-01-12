@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'master', component: MasterComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'team', component: TeamComponent },
+  { path: 'team', component: TeamComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'admin', component: AdminComponent },
   {
