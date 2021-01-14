@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { faAngleDown, faAngleRight, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SidebarService } from './sidebar.service';
 
@@ -16,6 +16,8 @@ export class SidebarComponent implements OnInit {
   faAngleDown = faAngleDown;
   faTimes = faTimes;
   faBars = faBars;
+
+  @Output() onRemoveSidebar: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private sidebarService: SidebarService) { }
 
@@ -40,5 +42,9 @@ export class SidebarComponent implements OnInit {
 
   toggleSidebarNav() {
     this.toggleSidebar = !this.toggleSidebar;
+  }
+
+  removeSidebar() {
+    this.onRemoveSidebar.emit(true);
   }
 }

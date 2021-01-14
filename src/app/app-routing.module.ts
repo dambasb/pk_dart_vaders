@@ -15,7 +15,7 @@ import { TeamComponent } from './team/team.component';
 import { TrainingComponent } from './training/training.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: DashboardComponent },
   { path: 'league', component: LeagueComponent },
   { path: 'league/fixtures', component: FixturesComponent },
   { path: 'league/table', component: TablesComponent },
@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'authentication', children: [
       { path: 'login', component: AuthenticationComponent, data: { buttonContent: "Login" } },
       { path: 'singup', component: AuthenticationComponent, data: { buttonContent: "Sing Up" } }
-    ]
+    ], data: { sidebar: true }
   }
 
 ];
