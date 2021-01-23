@@ -1,13 +1,8 @@
-<div *ngIf="!isAuthentication"
-     class="page-content">
-  <app-sidebar (onRemoveSidebar)="removeSidebar($event)"></app-sidebar>
-  <div class="main">
+<div [ngClass]="{'page-content' : !isAuthentication}">
+  <app-sidebar *ngIf="!isAuthentication"></app-sidebar>
+  <div [ngClass]="{'main' : !isAuthentication}">
     <div class="container">
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
-
-<div *ngIf="isAuthentication">
-  <router-outlet></router-outlet>
 </div>

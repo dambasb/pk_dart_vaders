@@ -15,9 +15,10 @@ import { TeamComponent } from './team/team.component';
 import { TrainingComponent } from './training/training.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'league', component: LeagueComponent },
-  { path: 'league/fixtures', component: FixturesComponent },
+
+  { path: 'dashboard', component: DashboardComponent, data: { sidebar: true } },
+  { path: 'league', component: LeagueComponent, data: { sidebar: true } },
+  { path: 'league/fixtures', component: FixturesComponent, data: { sidebar: true } },
   { path: 'league/table', component: TablesComponent },
   { path: 'league/states', component: StatesComponent },
   { path: 'league/teams', component: TeamsComponent },
@@ -32,9 +33,9 @@ const routes: Routes = [
     path: 'authentication', children: [
       { path: 'login', component: AuthenticationComponent, data: { buttonContent: "Login" } },
       { path: 'singup', component: AuthenticationComponent, data: { buttonContent: "Sing Up" } }
-    ], data: { sidebar: true }
-  }
-
+    ], data: { sidebar: false }
+  },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

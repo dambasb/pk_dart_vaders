@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { faAngleDown, faAngleRight, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from '../authentication/authentication.service';
 import { SidebarService } from './sidebar.service';
 
 @Component({
@@ -17,9 +18,8 @@ export class SidebarComponent implements OnInit {
   faTimes = faTimes;
   faBars = faBars;
 
-  @Output() onRemoveSidebar: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor(private sidebarService: SidebarService) { }
+  constructor(private sidebarService: SidebarService,
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.menus = this.sidebarService.getMenuList();
@@ -40,11 +40,13 @@ export class SidebarComponent implements OnInit {
     this.toggleDropdown = this.menus[index].toggle;
   }
 
+  /* Toggle Sidebar */
   toggleSidebarNav() {
     this.toggleSidebar = !this.toggleSidebar;
   }
 
+  /* Remove Sidebar when navigating to Login Component */
   removeSidebar() {
-    this.onRemoveSidebar.emit(true);
+    this.authenticationService.emitIsAuthenticationEvent(true);
   }
 }

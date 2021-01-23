@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from './authentication.service';
+
 
 @Component({
   selector: 'app-authentication',
@@ -9,9 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AuthenticationComponent implements OnInit {
 
   isLogin = false;
-  buttonContent: string;
+  buttonContent: string
+  item = false;
 
-  constructor(private active: ActivatedRoute, private router: Router) { }
+  constructor(
+    private active: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.isLoginUrl();
@@ -26,7 +32,9 @@ export class AuthenticationComponent implements OnInit {
   }
 
   goHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['dashboard']);
+    this.authenticationService.emitIsAuthenticationEvent(false);
   }
 
 }
+

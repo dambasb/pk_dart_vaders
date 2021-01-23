@@ -24,6 +24,7 @@ import { NewUserComponent } from './admin/new-user/new-user.component';
 import { TeamsComponent } from './league/teams/teams.component';
 import { TeamDetailsComponent } from './league/teams/team-details/team-details.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AuthenticationService } from './authentication/authentication.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatTableModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from './authentication/authentication.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
 
-  isAuthentication = false;
+  isAuthentication: boolean = false;
+  subscription: any;
+  test = false;
 
-  constructor(private location: Location, private router: Router) { }
+  constructor(
+    private location: Location,
+    private authenticationService: AuthenticationService,
+    private active: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.active.snapshot);
     this.isAuthenticationUrl();
+    this.subscription = this.authenticationService.getAuthenticationEmitter()
+      .subscribe(item => {
+
+        /* Toggle Sidebar */
+        this.isAuthentication = item;
+
+        if (!item) {
+          document.querySelector('body').classList.remove('authentication');
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   isAuthenticationUrl() {
@@ -27,9 +48,4 @@ export class AppComponent implements OnInit {
       this.isAuthentication = false;
     }
   }
-
-  removeSidebar(data: boolean): void {
-    this.isAuthentication = data;
-  }
-
 }
