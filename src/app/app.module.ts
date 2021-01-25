@@ -17,14 +17,14 @@ import { StatesComponent } from './league/states/states.component';
 import { PlayersComponent } from './team/players/players.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { NewUserComponent } from './admin/new-user/new-user.component';
 import { TeamsComponent } from './league/teams/teams.component';
 import { TeamDetailsComponent } from './league/teams/team-details/team-details.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthenticationService } from './authentication/authentication.service';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,8 +51,8 @@ import { AuthenticationService } from './authentication/authentication.service';
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatSortModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
     private active: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.active.snapshot);
     this.isAuthenticationUrl();
     this.subscription = this.authenticationService.getAuthenticationEmitter()
       .subscribe(item => {
