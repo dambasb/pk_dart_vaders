@@ -4,47 +4,78 @@
   </div>
 
   <div class="col-sm-12">
-    <form>
+    <form [formGroup]="settingsForm"
+          (ngSubmit)="onSubmit()">
 
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input type="text"
-                   class="form-control">
+                   class="form-control"
+                   id="firstName"
+                   formControlName="firstName">
+
           </div>
 
           <div class="form-group">
             <label for="lastName">Last Name</label>
             <input type="text"
-                   class="form-control">
+                   class="form-control"
+                   id="lastName"
+                   formControlName="lastName">
           </div>
-          <div>
-            <button class="btn btn-success"
-                    type="button"
-                    (click)="changeProfileImage.click()">Change Profile Image</button>
-            <input type="file"
-                   #changeProfileImage>
-          </div>
+
+          <button class="btn btn-success"
+                  type="button"
+                  (click)="filePicker.click()">Change Profile Image</button>
+          <input type="file"
+                 #filePicker
+                 (change)="onImagePicked($event)">
+
 
 
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email"
-                   class="form-control">
+                   class="form-control"
+                   id="email"
+                   formControlName="email">
+            <span *ngIf="!settingsForm.get('email').valid  && settingsForm.get('email').touched"
+                  class="help-block">
+              <span *ngIf="settingsForm.get('email').errors['existingEmail']">Email already exists!</span>
+              <span *ngIf="settingsForm.get('email').errors['required']">Please enter email!</span>
+            </span>
           </div>
-
 
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password"
-                   class="form-control">
+                   class="form-control"
+                   id="password"
+                   formControlName="password">
+            <span *ngIf="!settingsForm.get('password').valid  && settingsForm.get('password').touched"
+                  class="help-block">
+              Please enter Password!
+
+            </span>
+            <span *ngIf="settingsForm.get('password').value  && settingsForm.get('confirmPassword').value"
+                  class="help-block">
+              Passwords do not match!
+            </span>
           </div>
 
           <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
             <input type="password"
-                   class="form-control">
+                   class="form-control"
+                   id="confirmPassword"
+                   formControlName="confirmPassword"
+                   required>
+            <span *ngIf="settingsForm.get('password').value  && settingsForm.get('confirmPassword').value"
+                  class="help-block">
+              Passwords do not match!
+            </span>
           </div>
           <div class="text-center">
             <button type="submit"

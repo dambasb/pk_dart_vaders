@@ -10,19 +10,29 @@
 
     </div>
     <div class="modal-body">
-      <form action="">
+      <form [formGroup]="newUserForm"
+            (ngSubmit)="onSubmit()">
 
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email"
-                 class="form-control">
+                 class="form-control"
+                 id="email"
+                 formControlName="email">
+          <span *ngIf="!newUserForm.get('email').valid  && newUserForm.get('email').touched"
+                class="help-block">
+            <span *ngIf="newUserForm.get('email').errors['existingEmail']">Email already exists!</span>
+            <span *ngIf="newUserForm.get('email').errors['required']">Please enter email!</span>
+          </span>
+        </div>
+        <div class="modal-footer">
+          <button type="submit"
+                  [disabled]="!newUserForm.valid"
+                  class="btn btn-primary">Invite</button>
         </div>
       </form>
     </div>
-    <div class="modal-footer">
-      <button type="button"
-              class="btn btn-primary">Invite</button>
-    </div>
+
   </div>
 
 </div>
