@@ -14,7 +14,7 @@ export class AuthenticationComponent implements OnInit {
   isLogin = false;
   buttonContent: string
   authenticationForm: FormGroup;
-  existingEmails = ['dkolobaric@gmail.com', 'kolobaric@gmail.com'];
+  existingEmails = ['dkolobaric@gmail.com'];
 
   constructor(
     private active: ActivatedRoute,
@@ -33,6 +33,10 @@ export class AuthenticationComponent implements OnInit {
       'password': new FormControl(null, Validators.required),
       'confirmPassword': new FormControl(null, Validators.required),
     })
+
+    if (this.isLogin) {
+      this.authenticationForm.patchValue({ 'firstName': 'empty', 'lastName': 'empty', 'confirmPassword': 'empty' })
+    }
   }
 
   isLoginUrl() {
@@ -60,10 +64,15 @@ export class AuthenticationComponent implements OnInit {
   * the value of the key should be boolean
   */
   alreadyExistingEmails(control: FormControl): { [s: string]: boolean } {
-    if (this.existingEmails.indexOf(control.value) !== -1) {
-      return { 'existingEmail': true }
+
+    if (!this.isLogin) {
+      console.log(1);
+      if (this.existingEmails.indexOf(control.value) !== -1) {
+        return { 'existingEmail': true }
+      }
+      return null;;
     }
-    return null;
+
   }
 }
 
