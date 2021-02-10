@@ -1,5 +1,13 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Admin } from "./admin.model";
+
+@Injectable({ providedIn: "root" })
 export class AdminService {
+
+  apiUrl = "http://127.0.0.1:3000/api";
   toggleSort = false;
+
   users = [
     {
       id: 1,
@@ -50,10 +58,12 @@ export class AdminService {
     }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.users;
+
+    return this.http.get<{ message: string, users: Admin[] }>(this.apiUrl + '/users/test');
+
   }
 
   sortUsers(type: string | number) {

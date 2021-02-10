@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
+import { Login } from './login.model';
+import { Singup } from './singup.model';
 
 
 @Component({
@@ -25,18 +27,8 @@ export class AuthenticationComponent implements OnInit {
     this.isLoginUrl();
     this.buttonContent = this.active.snapshot.data['buttonContent'];
     document.body.classList.add('authentication');
+    this.instantiateForm();
 
-    this.authenticationForm = new FormGroup({
-      'firstName': new FormControl(null, Validators.required),
-      'lastName': new FormControl(null, Validators.required),
-      'email': new FormControl(null, [Validators.required, Validators.email, this.alreadyExistingEmails.bind(this)]),
-      'password': new FormControl(null, Validators.required),
-      'confirmPassword': new FormControl(null, Validators.required),
-    })
-
-    if (this.isLogin) {
-      this.authenticationForm.patchValue({ 'firstName': 'empty', 'lastName': 'empty', 'confirmPassword': 'empty' })
-    }
   }
 
   isLoginUrl() {
@@ -50,8 +42,38 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.emitIsAuthenticationEvent(false);
   }
 
+  instantiateForm() {
+    this.authenticationForm = new FormGroup({
+      'firstName': new FormControl(null, Validators.required),
+      'lastName': new FormControl(null, Validators.required),
+      'email': new FormControl(null, [Validators.required, Validators.email, this.alreadyExistingEmails.bind(this)]),
+      'password': new FormControl(null, Validators.required),
+      'confirmPassword': new FormControl(null, Validators.required),
+    })
+
+    if (this.isLogin) {
+      this.authenticationForm.patchValue({ 'firstName': 'empty', 'lastName': 'empty', 'confirmPassword': 'empty' })
+    }
+  }
+
   onSubmit() {
     console.log(this.authenticationForm);
+    if (this.isLogin) {
+      const loginData: Login = {
+        password: this.authenticationForm.controls.password.value,
+        email: this.authenticationForm.controls.email.value
+      }
+      console.log(loginData);
+    } else {
+      const singupData: Singup = {
+        firstName: this.authenticationForm.controls.firstName.value,
+        lastName: this.authenticationForm.controls.lastName.value,
+        password: this.authenticationForm.controls.password.value,
+        confirmPassword: this.authenticationForm.controls.confirmPassword.value,
+        email: this.authenticationForm.controls.email.value
+      }
+      console.log(singupData);
+    }
   }
 
   /*
@@ -66,7 +88,6 @@ export class AuthenticationComponent implements OnInit {
   alreadyExistingEmails(control: FormControl): { [s: string]: boolean } {
 
     if (!this.isLogin) {
-      console.log(1);
       if (this.existingEmails.indexOf(control.value) !== -1) {
         return { 'existingEmail': true }
       }

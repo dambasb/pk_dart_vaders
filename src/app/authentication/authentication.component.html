@@ -53,7 +53,7 @@
         Please enter Password!
 
       </span>
-      <span *ngIf="authenticationForm.get('password').value  && authenticationForm.get('confirmPassword').value && !isLogin"
+      <span *ngIf="authenticationForm.get('password').value  == authenticationForm.get('confirmPassword').value"
             class="help-block">
         Passwords do not match!
       </span>
@@ -68,7 +68,9 @@
              id="confirmPassword"
              formControlName="confirmPassword"
              required>
-      <span *ngIf="authenticationForm.get('password').value  && authenticationForm.get('confirmPassword').value"
+
+
+      <span *ngIf="authenticationForm.get('password').value === authenticationForm.get('confirmPassword').value"
             class="help-block">
         Passwords do not match!
       </span>

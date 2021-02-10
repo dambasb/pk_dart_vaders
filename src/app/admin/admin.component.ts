@@ -14,9 +14,12 @@ export class AdminComponent implements OnInit {
 
   constructor(private adminService: AdminService) { }
 
-  ngOnInit(): void {
-    this.users = this.adminService.getUsers();
-    this.users.splice(0, 10);
+  ngOnInit() {
+
+    this.adminService.getUsers()
+      .subscribe((data) => {
+        this.users = data.users;
+      });
   }
 
   sort(type: string | number) {
