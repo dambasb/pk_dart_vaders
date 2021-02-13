@@ -42,17 +42,17 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.emitIsAuthenticationEvent(false);
   }
 
+
   instantiateForm() {
     this.authenticationForm = new FormGroup({
       'firstName': new FormControl(null, Validators.required),
       'lastName': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email, this.alreadyExistingEmails.bind(this)]),
-      'password': new FormControl(null, Validators.required),
-      'confirmPassword': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required)
     })
 
     if (this.isLogin) {
-      this.authenticationForm.patchValue({ 'firstName': 'empty', 'lastName': 'empty', 'confirmPassword': 'empty' })
+      this.authenticationForm.patchValue({ 'firstName': 'empty', 'lastName': 'empty' })
     }
   }
 
@@ -64,21 +64,21 @@ export class AuthenticationComponent implements OnInit {
         email: this.authenticationForm.controls.email.value
       }
       console.log(loginData);
+      this.authenticationService.login(loginData);
     } else {
       const singupData: Singup = {
         firstName: this.authenticationForm.controls.firstName.value,
         lastName: this.authenticationForm.controls.lastName.value,
         password: this.authenticationForm.controls.password.value,
-        confirmPassword: this.authenticationForm.controls.confirmPassword.value,
         email: this.authenticationForm.controls.email.value
       }
       console.log(singupData);
+
+      this.authenticationService.singup(singupData);
     }
   }
 
-  /*
-  TODO: make Async Validator when we get server side
-  */
+  //TODO: make Async Validator when we get server side
 
   /*
   * needs to  return JS object

@@ -3,5 +3,4 @@ export interface Singup {
   lastName: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
