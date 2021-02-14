@@ -57,13 +57,13 @@ export class AuthenticationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.authenticationForm);
+
     if (this.isLogin) {
       const loginData: Login = {
         password: this.authenticationForm.controls.password.value,
         email: this.authenticationForm.controls.email.value
       }
-      console.log(loginData);
+
       this.authenticationService.login(loginData);
     } else {
       const singupData: Singup = {
@@ -72,7 +72,7 @@ export class AuthenticationComponent implements OnInit {
         password: this.authenticationForm.controls.password.value,
         email: this.authenticationForm.controls.email.value
       }
-      console.log(singupData);
+
 
       this.authenticationService.singup(singupData);
     }

@@ -7,7 +7,7 @@ import { Singup } from "./singup.model";
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
 
-  apiUrl = "http://127.0.0.1:3000/api";
+  apiUrl = "http://127.0.0.1:3000/api/users";
   /* https://stackoverflow.com/questions/31131490/how-to-subscribe-to-an-event-on-a-service-in-angular2 */
   isAuthentication: EventEmitter<boolean> = new EventEmitter();
 
@@ -23,7 +23,7 @@ export class AuthenticationService {
   singup(singupData: Singup) {
     console.log('Service: ', singupData);
 
-    this.http.post<Singup>(this.apiUrl + '/users/users', singupData)
+    this.http.post<Singup>(this.apiUrl + '/singup', singupData)
       .subscribe(
         responseData => console.log('success', responseData),
         error => console.log('oops', error)
@@ -34,8 +34,8 @@ export class AuthenticationService {
     console.log('Service: ', loginData);
 
     //TODO add API url
-    return;
-    this.http.post<Singup>(this.apiUrl + 'ADD APP IRL', loginData)
+
+    this.http.post<Login>(this.apiUrl + '/login', loginData)
       .subscribe(
         responseData => console.log('success', responseData),
         error => console.log('oops', error)
