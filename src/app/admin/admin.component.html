@@ -20,17 +20,20 @@
     <table class="table">
       <thead>
         <tr>
-          <th (click)="sort('id')"
-              scope="col">#</th>
           <th (click)="sort('firstName')"
-              scope="col">First</th>
+              scope="col">Name</th>
+          <th (click)="sort('lastName')"
+              scope="col">Last Name</th>
+          <th (click)="sort('email')"
+              scope="col">email</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of users; index as i">
-          <th scope="row">{{user.id}}</th>
           <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
           <td>
             <fa-icon [icon]="faTrash"
                      (click)="removeUser()"></fa-icon>

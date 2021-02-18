@@ -24,13 +24,14 @@
   <div class="sidebar-menu">
     <ul class="p-0">
       <li *ngFor="let menu of menus; index as i;">
-        <a *ngIf="menu.type === 'simple'"
-           routerLink="{{menu.route}}"
-           routerLinkActive="active"
-           class="sidebar-item">
-          <span>{{menu.title}}</span>
-        </a>
-
+        <span *ngIf="!token">
+          <a *ngIf="menu.type === 'simple'"
+             routerLink="{{menu.route}}"
+             routerLinkActive="active"
+             class="sidebar-item">
+            <span>{{menu.title}}</span>
+          </a>
+        </span>
         <div *ngIf="menu.type === 'dropdown'"
              class="dropdown">
 

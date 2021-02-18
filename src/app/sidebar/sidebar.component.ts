@@ -17,12 +17,17 @@ export class SidebarComponent implements OnInit {
   faAngleDown = faAngleDown;
   faTimes = faTimes;
   faBars = faBars;
+  token = false;
 
   constructor(private sidebarService: SidebarService,
     private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.menus = this.sidebarService.getMenuList();
+    if (this.authenticationService.getToken()) {
+      this.token = true;
+    }
+
   }
 
   /* Toggle dropdown of specific item in ngFor */

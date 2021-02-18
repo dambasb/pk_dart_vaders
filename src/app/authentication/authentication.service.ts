@@ -8,6 +8,8 @@ import { Singup } from "./singup.model";
 export class AuthenticationService {
 
   apiUrl = "http://127.0.0.1:3000/api/users";
+  private token: string;
+
   /* https://stackoverflow.com/questions/31131490/how-to-subscribe-to-an-event-on-a-service-in-angular2 */
   isAuthentication: EventEmitter<boolean> = new EventEmitter();
 
@@ -21,7 +23,6 @@ export class AuthenticationService {
   }
 
   singup(singupData: Singup) {
-    console.log('Service: ', singupData);
 
     this.http.post<Singup>(this.apiUrl + '/singup', singupData)
       .subscribe(
@@ -31,14 +32,20 @@ export class AuthenticationService {
   }
 
   login(loginData: Login) {
-    console.log('Service: ', loginData);
-
-    //TODO add API url
 
     this.http.post<Login>(this.apiUrl + '/login', loginData)
       .subscribe(
-        responseData => console.log('success', responseData),
-        error => console.log('oops', error)
+        (responseData) => {
+          console.log('success', responseData);
+          const token = responseData.token;
+          this.token = token;
+        },
+
+        (error) => { console.log('oops', error) }
       )
+  }
+
+  getToken() {
+    return this.token;
   }
 }

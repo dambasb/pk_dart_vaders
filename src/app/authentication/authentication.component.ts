@@ -59,6 +59,7 @@ export class AuthenticationComponent implements OnInit {
   onSubmit() {
 
     if (this.isLogin) {
+
       const loginData: Login = {
         password: this.authenticationForm.controls.password.value,
         email: this.authenticationForm.controls.email.value
@@ -66,6 +67,7 @@ export class AuthenticationComponent implements OnInit {
 
       this.authenticationService.login(loginData);
     } else {
+
       const singupData: Singup = {
         firstName: this.authenticationForm.controls.firstName.value,
         lastName: this.authenticationForm.controls.lastName.value,
@@ -73,9 +75,10 @@ export class AuthenticationComponent implements OnInit {
         email: this.authenticationForm.controls.email.value
       }
 
-
       this.authenticationService.singup(singupData);
     }
+
+    this.goHome();
   }
 
   //TODO: make Async Validator when we get server side

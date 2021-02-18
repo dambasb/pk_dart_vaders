@@ -8,63 +8,15 @@ export class AdminService {
   apiUrl = "http://127.0.0.1:3000/api";
   toggleSort = false;
 
-  users = [
-    {
-      id: 1,
-      firstName: 'Damir'
-    },
-    {
-      id: 2,
-      firstName: 'BKristijan'
-    },
-    {
-      id: 3,
-      firstName: 'CMarko'
-    },
-    {
-      id: 4,
-      firstName: 'FMarko'
-    },
-    {
-      id: 5,
-      firstName: 'Damir'
-    },
-    {
-      id: 6,
-      firstName: 'BKristijan'
-    },
-    {
-      id: 7,
-      firstName: 'CMarko'
-    },
-    {
-      id: 8,
-      firstName: 'FMarko'
-    }, {
-      id: 9,
-      firstName: 'Damir'
-    },
-    {
-      id: 10,
-      firstName: 'BKristijan'
-    },
-    {
-      id: 11,
-      firstName: 'CMarko'
-    },
-    {
-      id: 12,
-      firstName: 'FMarko'
-    }
-  ];
+  private users: Admin[] = [];
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
 
-    return this.http.get<{ message: string, users: Admin[] }>(this.apiUrl + '/users/test');
-
+  fetchUsers() {
+    return this.http.get<{ message: string, users: any }>(this.apiUrl + '/users')
   }
+
 
   sortUsers(type: string | number) {
 
