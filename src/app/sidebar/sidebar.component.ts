@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { faAngleDown, faAngleRight, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { SidebarService } from './sidebar.service';
@@ -22,12 +22,12 @@ export class SidebarComponent implements OnInit {
   constructor(private sidebarService: SidebarService,
     private authenticationService: AuthenticationService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.menus = this.sidebarService.getMenuList();
-    if (this.authenticationService.getToken()) {
+
+    if (localStorage.getItem('token')) {
       this.token = true;
     }
-
   }
 
   /* Toggle dropdown of specific item in ngFor */
@@ -54,4 +54,9 @@ export class SidebarComponent implements OnInit {
   removeSidebar() {
     this.authenticationService.emitIsAuthenticationEvent(true);
   }
+
+  logout() {
+
+  }
+
 }

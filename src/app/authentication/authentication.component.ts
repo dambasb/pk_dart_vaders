@@ -64,7 +64,7 @@ export class AuthenticationComponent implements OnInit {
         password: this.authenticationForm.controls.password.value,
         email: this.authenticationForm.controls.email.value
       }
-
+      console.log(loginData);
       this.authenticationService.login(loginData);
     } else {
 
@@ -77,8 +77,6 @@ export class AuthenticationComponent implements OnInit {
 
       this.authenticationService.singup(singupData);
     }
-
-    this.goHome();
   }
 
   //TODO: make Async Validator when we get server side

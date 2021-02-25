@@ -24,7 +24,7 @@
   <div class="sidebar-menu">
     <ul class="p-0">
       <li *ngFor="let menu of menus; index as i;">
-        <span *ngIf="!token">
+        <span *ngIf="token">
           <a *ngIf="menu.type === 'simple'"
              routerLink="{{menu.route}}"
              routerLinkActive="active"
@@ -62,8 +62,11 @@
   </div>
 
   <div class="sidebar-footer">
-    <a routerLink="authentication/login"
+    <a *ngIf="!token"
+       routerLink="authentication/login"
        (click)="removeSidebar()">Login</a>
+    <a *ngIf="token"
+       (click)="logout()">Logout</a>
   </div>
 
 </div>
